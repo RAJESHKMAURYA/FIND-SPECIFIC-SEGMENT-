@@ -1,0 +1,17 @@
+#!/usr/bin/perl ­w
+use warnings;
+$file = "chr21test.txt";
+$file1 = "chr21test6.txt";
+open (FH,'<',"$file") or die "Can't open $file1 for read: $!";
+open (FH1,'>',"$file1") or die "Can't open $file2 for read: $!";
+while (my $line = <FH>) {
+chomp $line;
+my @cols = split(/\t/, $line);
+#my @cols eq WINDOW;
+if (($cols[­2] == 0) && ($cols[­1] > 0)) {
+print FH1 "$line\n";
+}
+}
+exit;
+close FH;
+close FH1;
